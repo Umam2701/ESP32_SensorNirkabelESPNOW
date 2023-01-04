@@ -3,47 +3,34 @@
 ESP-NOW adalah protokol yang dikembangkan oleh Espressif, yang memungkinkan banyak perangkat untuk berkomunikasi satu sama lain tanpa menggunakan Wi-Fi. Protokol ini mirip dengan konektivitas nirkabel 2.4GHz berdaya rendah. Pendifinisian alamat (MAC Address) pada masing-masing ESP32 diperlukan pada awal konfigurasi. Setelah konfigurasi alamat selesai dilakukan, jaringan peer-to-peer akan terbentuk dan perangkat tidak perlu melakukan handshaking kembali ketika akan berkomunikasi. Hal ini memunjukkan bahwa setelah perangkat ESP32 saling terpasang satu sama lain, koneksi akan tetap ada. Dengan kata lain, jika tiba-tiba salah satu ESP32 kehilangan daya atau diatur ulang, ketika restart, secara otomatis akan terhubung ke pasangan ESP32 yang telah terdefinisi alamatnya untuk melanjutkan komunikasi.
 
 
-#### Alat dan Bahan yang Digunakan
+**Alat dan Bahan**
 1) ESP32
 2) Breadboard
 3) Kabel jumper
 4) Resistor 10K Ohm
+<br>
 
-#### III. Percobaan
+**LANGKAH PERCOBAAN**
+
 A. Memperoleh MAC Address ESP32 Receiver
-1. Buka Arduino IDE
-2. Kemudian ketikkan script program berikut di Arduino IDE.
-3. Upload program tersebut ke ESP32.
-4. Setelah program berhasil diupload, buka serial monitor.
-5. Catat Mac Address ESP32.
 
-![Picture1](https://user-images.githubusercontent.com/118172386/210173426-1aee942b-1158-40d6-8c78-43977cb210f7.png)
+![mencatat mac address](https://user-images.githubusercontent.com/118170084/210583064-66cb2368-ee35-4e3d-b0fd-6516b134113d.png)
+<br>
 
 B. ESP-NOW One-Way Point-to-Point Communication
-1. Siapkan board ESP32 sejumlah 2 unit yang akan diprogram sebagai Sender dan Receiver.
-2. Kemudian ketikkan script program berikut untuk mengkonfigurasi ESP32 sebagai sender.
-3. Isi array broadcastAddress [] dengan MAC Address ESP32 Receiver yang didapatkan pada praktikum poin A.
-4. Upload program pada ESP32 Sender.
-5. Setelah ESP32 sender dikonfigurasi, kemudian konfigurasikan ESP32 yang lain sebagai Receiver. Ketikkan script program berikut untuk mengkonfigurasi ESP32 sebagai
-receiver.
-6. Upload program, kemudian dokumentasikan hasilnya.
 
-MAC Address Tx (Nabila & Hesti) : 24:0A:C4:C6:06:54
+`MAC Address Tx : 24:0A:C4:C6:06:54`
 
-![Picture8](https://user-images.githubusercontent.com/118172386/210176305-8f790ff1-7dd2-4f63-bcfa-d673b95680ab.png)
-![Picture9](https://user-images.githubusercontent.com/118172386/210176309-b6fae9ed-bcb2-4762-9fbb-d9f0056ccc82.png)
+![mac tx 1](https://user-images.githubusercontent.com/118170084/210585845-12c2dcd7-a3ed-464c-b477-888e93f43a74.png)
 
-MAC Address Rx (Razan & Cantika) : 30:AE:A4:7A:8F:B8
+![mac tx 2](https://user-images.githubusercontent.com/118170084/210585859-32f20871-0948-4609-9e65-397afd6cc0a6.png)
 
-![Picture10](https://user-images.githubusercontent.com/118172386/210176316-3b47f081-b8a4-41bd-84f5-b8079e974d17.png)
-![Picture11](https://user-images.githubusercontent.com/118172386/210176321-fe7b1bb8-c8eb-4944-ab7b-6855e30e0d43.png)
+`MAC Address Rx : 30:AE:A4:7A:8F:B8`
 
+![mac rx 1](https://user-images.githubusercontent.com/118170084/210586932-453cf26d-ec53-4740-b14e-9b834cfc1c0e.png)
 
-7. Buatlah analisis atau flow chart program untuk menjelaskan fungsi per-bagian pada program.
-8. Buatlah data dummy dengan ukuran yang terbaca oleh receiver ± 250 byte.
-9. Aturlah jarak awal komunikasi antara sender dan receiver yaitu 1 meter. Kemudian ubah jarak komunikasi dengan penambahan 1 meter. Data yang dikirim pada tiap iterasi pengujian adalah 10 data.
-10. Aturlah tinggi antena atau peletakan ESP32 pada ground level (menempel tanah), 30 cm di atas tanah, dan 1 meter di atas tanah.
-11. Masukkan hasil pengukuran pada kolom berikut dan buatlah analisisnya dengan pendekatan teori freshnel zone.
+![mac rx 2](https://user-images.githubusercontent.com/118170084/210586956-e41878ae-156c-4388-a985-0550a0784240.png)
+
 ![Capture1](https://user-images.githubusercontent.com/118172386/210174231-27c63ef7-d7b7-4f6f-9393-3fae47a03d06.JPG)
 
 C. One-Way, One-to-Many Communication
