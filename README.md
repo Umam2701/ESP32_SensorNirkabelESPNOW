@@ -31,100 +31,55 @@ B. ESP-NOW One-Way Point-to-Point Communication
 
 ![mac rx 2](https://user-images.githubusercontent.com/118170084/210586956-e41878ae-156c-4388-a985-0550a0784240.png)
 
-![Capture1](https://user-images.githubusercontent.com/118172386/210174231-27c63ef7-d7b7-4f6f-9393-3fae47a03d06.JPG)
+<img width="370" alt="data packet loss" src="https://user-images.githubusercontent.com/118170084/210589135-cb10126f-943e-461d-88d4-31818dce99bb.png">
 
 C. One-Way, One-to-Many Communication
 
-a) Mengirim Pesan yang Sama Ke Beberapa Board ESP32
-1. Siapkan 4 unit board ESP32.
-2. Unggah program untuk mendapatkan Mac Address, kemudian catat masing-masing Mac Address pada setiap board ESP32 yang akan diatur sebagai Receiver.
-3. Siapkan 1 unit ESP-32 yang akan dikonfigurasi sebagai Master/Sender.
-4. Ketik program berikut ini dan tambahkan semua Mac Address ESP32 Receiver pada bagian broadcastAddress[].
-5. Upload program tersebut pada board ESP32 Sender.
-6. Siapkan board Receiver, kemudian ketik script berikut ini pada Arduino IDE.
-7. Upload program tersebut pada Receiver.
-8. Dokumentasikan output dari program tersebut secara lengkap pada masing-masing board.
+*a) Mengirim Pesan yang Sama Ke Beberapa Board ESP32*
+MAC Address yang digunakan:
 
-MAC Address yang digunakan :
+`MAC Sender : 3C:71:BF:F1:4B:08`
 
-MAC Sender (Syauqi & Vania) : 3C:71:BF:F1:4B:08
+`MAC Reciver 1 : 24:6F:28:02:C3:1C`
 
-MAC Reciver 1 (Noviantie & Dionysius) : 24:6F:28:02:C3:1C
+`MAC Receiver 2 : 24:0A:C4:C6:06:54`
 
-MAC Receiver 2 (Hesti & Nabila) : 24:0A:C4:C6:06:54
+`MAC Receiver 3 : 30:AE:A4:7A:8F:B8`
 
-MAC Receiver 3 (Cantika & Razan) : 30:AE:A4:7A:8F:B8
-
-Pada Receiver 3, Hasilnya adalah sebagai berikut
+Pada Receiver 3, Hasilnya adalah sebagai berikut.
 ![Picture6](https://user-images.githubusercontent.com/118172386/210175529-3e0865a4-bc50-463b-b6a0-61fedb48f0f6.png)
 
-9. Matikan salah satu board Receiver, dokumentasikasikan hasilnya, dan buatlah analisisnya.
-
-Pada Receiver 3, Hasilnya adalah sebagai berikut
+Pada Receiver 3 saat dimatikan board receiver, Hasilnya adalah sebagai berikut.
 ![Picture7](https://user-images.githubusercontent.com/118172386/210175544-5621ba44-1a00-4639-8de3-751b6af1940e.png)
 
-10. Buatlah koneksi menggunakan semua board ESP32 yang ada dikelas, dengan menambahkan Receiver ke dalam jaringan secara bertahap,
-11. Dokumentasikan hasilnya secara lengkap. Catat dan analisis jumlah board maksimal yang dapat membentuk jaringan
-
-b) Mengirim Pesan yang Berbeda Ke Beberapa Board ESP32
-1. Siapkan 4 board ESP32, 1 board sebagai Sender dan 3 board sebagai Receiver.
-2. Buatlah program pada Sender agar dapat mengirim pesan yang berbeda pada 3 Receiver.
-3. Tips : Buat 3 buat struktur data.
-Buat 3 random data dummy generator pada masing-masing variabel x dan y.
-Gunakan fungsi esp_now_send() pada masing-masing broadcastAddress dengan
-script yang terpisah
 
 D. One-Way, Many-to-One Communication 
 
-Di dalam mode ini, Receiver harus dapat mengidentifikasi setiap MAC Address unik dari Sender. Namun, untuk dapat membaca MAC Address yang berbeda cukup rumit dan butuh
-sedikit trik. Sehingga, untuk membuatnya lebih mudah, masing-masing Sender akan diberikan ID unik, agar Receiver dapat lebih mudah mengidentifikasi Sender.
-1. Siapkan 4 board ESP32. 3 board diatur sebagai Sender dan 1 board diatur sebagai Receiver.
-2. Unggah program untuk menemukan MAC Address pada board Receiver, kemudian catat MAC Address-nya.
-
 MAC Address ESP32 yang digunakan :
 
-MAC Sender 1 (Syauqi & Vania) : 24:0A:C4:C5:E2:DC
+`MAC Sender 1 : 24:0A:C4:C5:E2:DC`
 
-MAC Sender 2 (Hesti & Nabila) : 24:0A:C4:C6:06:54
+`MAC Sender 2 : 24:0A:C4:C6:06:54`
 
-MAC Sender 3 (Cantika & Razan) : 24:0A:C4:C6:0E:7C
+`MAC Sender 3 : 24:0A:C4:C6:0E:7C`
 
-MAC Receiver  (Dionysius & Noviantie) : 3C:71:BF:F1:42:70
+`MAC Receiver  : 3C:71:BF:F1:42:70`
 
-3. Ketikkan program berikut pada Arduino IDE untuk mengkonfigurasi board Sender
-4. Upload program tersebut pada board Sender.
-5. Siapkan board Receiver, ketikkan script berikut di Arduino IDE, kemudian upload program tersebut.
-6. Buka serial monitor dan dokumentasikan output program.
-
-Dari Pihak Sender akan muncul seperti dibawah
+Dari Pihak Sender akan muncul seperti dibawah.
 ![Picture4](https://user-images.githubusercontent.com/118172386/210175087-c52e10d8-9700-4b07-861d-dec8f5ce6d2d.png)
 
-
-Dari Pihak Receiver akan muncul seperti dibawah
+Dari Pihak Receiver akan muncul seperti dibawah.
 ![Picture5](https://user-images.githubusercontent.com/118172386/210175089-02992e20-cc69-4b7e-8910-5d10559d9cf1.png)
 
 E. Two-Way Communication
-1. Siapkan 2 unit ESP32 dan 2 unit sensor DHT11.
-2. Buatlah rangkaian seperti pada Gambar di bawah ini.
 
 ![Capture](https://user-images.githubusercontent.com/118172386/210173864-32fef3ae-6fe2-4463-bbf7-10462a2a3d51.JPG)
 
-3. Install library sensor DHT 11 melalui Sketch > Include Library > Manage Libraries. Ketikkan DHT pada kolom pencarian, pilih library yang akan diinstall seperti pada
-Gambar berikut ini. Kemudian install juga Adafruit Unified Sensor menggunakan cara yang sama.
-4. Upload program berikut ini untuk melakukan pengecekan sensor DHT11.
-5. Dokumentasikan output program yang ditampilkan pada serial monitor Arduino IDE.
-6. Unggah program menemukan MAC Address pada masing-masing board, kemudian catat MAC Address-nya.
-7. Ketikkan script berikut, kemudian masukkan MAC Address receiver pada masingmasing board.
-8. Upload program pada masing-masing board.
-9. Buka serial monitor pada Arduino IDE, kemudian dokumentasikan outputnya.
-10. Buatlah jaringan sensor nirkabel ESPNow topologi MESH berlandaskan Two-Way Communication. Diagram blok jaringan dapat dilihat pada Gambar 5.
-
-Bentuk Rangkaian
+*Bentuk Rangkaian*
 
 ![Picture2](https://user-images.githubusercontent.com/118172386/210173997-db16f6c3-43fd-41d2-8d5c-6e4d15aede02.png)
 
-
-Tampilan pada Serial Monitor
+*Tampilan pada Serial Monitor*
 
 ![Picture3](https://user-images.githubusercontent.com/118172386/210173992-b4dfa271-443d-4b5d-95d1-972995517a3b.png)
 
